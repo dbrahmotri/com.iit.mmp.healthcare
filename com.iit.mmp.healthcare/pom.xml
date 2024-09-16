@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>betabatch</name>
+	<name>com.iit.mmp.healthcare</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -70,6 +70,7 @@
 				<version>3.2.5</version>
 				<configuration>
 					<suiteXmlFiles>
+					    <suiteXmlFile>RegistrationFramework.xml</suiteXmlFile>
 						<suiteXmlFile>ScheduleAppointmentDatePickerTests.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
