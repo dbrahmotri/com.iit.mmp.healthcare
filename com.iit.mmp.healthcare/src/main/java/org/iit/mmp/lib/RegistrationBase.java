@@ -40,29 +40,7 @@ readPropertyFile();
 		}
 		
 	}
-	// remove comment after testing Registration page - 08/27
-
-	// @BeforeClass// for each and every class it will trigger once - keeping 3
-	// classes in mind
 	
-	/*public void instantiateDriver() throws IOException 
-	{
-		System.out.println(
-				"Executing the testcases on the environment::: " + environment + "::: browserType::::" + browserType);
-
-		if (environment.equals("qa") && browserType.equals("chrome")) 
-		{
-			
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			prop = projConfig.loadProperties("config/mmp_registration.properties");
-			//System.out.println("Reading the patient_url" +prop.entrySet());
-			driver.get(prop.getProperty("registration_url"));
-			driver.manage().window().maximize();
-
-		}
-
-	}*/
 }
 
 
