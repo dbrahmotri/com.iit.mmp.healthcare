@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" verbose="5">
+  <test name="Test">
+  <parameter name="reason" value="Monthly Visit" />
+  <parameter name="subject" value="Having Cold and Cough" />
+  <parameter name="result" value="Messages Successfully sent." />
+    <classes>
+      <class name="org.iit.healthcare.betabatch.SendMessagesE2ETests"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

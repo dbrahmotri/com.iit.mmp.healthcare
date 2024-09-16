@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" verbose="5">
+  <test thread-count="5" name="Test(failed)" verbose="5">
+    <parameter name="seleSec" value="What is your pet name?"/>
+    <parameter name="firstname" value="Devi"/>
+    <parameter name="address" value="324, Twin Circle"/>
+    <parameter name="pharma_adress" value="123 Walgreens"/>
+    <parameter name="city" value="Omaha"/>
+    <parameter name="weight" value="110"/>
+    <parameter name="datepicker" value="09/11/1987"/>
+    <parameter name="lastname" value="Garth"/>
+    <parameter name="ssn" value="3411266267272"/>
+    <parameter name="zipcode" value="123458"/>
+    <parameter name="license" value="12345678"/>
+    <parameter name="password" value="123!"/>
+    <parameter name="answer" value="Goofy"/>
+    <parameter name="pharmacy" value="Walgreens"/>
+    <parameter name="state" value="NB"/>
+    <parameter name="confirmpassword" value="123!"/>
+    <parameter name="age" value="34"/>
+    <parameter name="email" value="Devi123@yahoo.com"/>
+    <parameter name="height" value="129"/>
+    <parameter name="username" value="Devi123"/>
+    <classes>
+      <class name="org.iit.healthcare.betabatch.RegistrationTest">
+        <methods>
+          <include name="validateRegister" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- org.iit.healthcare.betabatch.RegistrationTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
