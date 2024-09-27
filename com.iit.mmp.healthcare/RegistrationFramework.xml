@@ -1,8 +1,8 @@
 
 <suite name="Suite" verbose="5">
 	<test name="Test">
-		<parameter name="firstname" value="Vikrant"/>
-		<parameter name="lastname" value="Gary"/>
+		<parameter name="firstname" value="Vicky"/>
+		<parameter name="lastname" value="Goel"/>
 		<parameter name="datepicker" value=""/>
 		<parameter name="license" value=""/>
 		<parameter name="ssn" value=""/>
@@ -15,12 +15,12 @@
 		<parameter name="weight" value=""/>
 		<parameter name="pharmacy" value="Walgreens"/>
 		<parameter name="pharma_adress" value="123 Walgreens"/>
-		<parameter name="email" value="Devi123@yahoo.com"/>
-		<parameter name="password" value="123!"/>
-		<parameter name="username" value="Devi123"/>
-		<parameter name="confirmpassword" value="123!"/>
+		<parameter name="email" value="vicky123@yahoo.com"/>
+		<parameter name="password" value="Vi1234567!"/>
+		<parameter name="username" value="vickyg123"/>
+		<parameter name="confirmpassword" value="Vi1234567!"/>
 		<parameter name="seleSec" value="What is your pet name?"/>
-		<parameter name="answer" value="Blacky"/>
+		<parameter name="answer" value="Scooby"/>
 		
 		<classes>
 			<class name="org.iit.healthcare.betabatch.RegistrationTest"/>

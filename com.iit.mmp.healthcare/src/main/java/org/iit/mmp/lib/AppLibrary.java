@@ -135,22 +135,23 @@ public class AppLibrary {
 	public static String[][] readXLSX(String fileName, String sheetName) throws IOException {
 		File f = new File(fileName);
 		FileInputStream fs = new FileInputStream(f);
-		XSSFWorkbook wb = new XSSFWorkbook(fs);
-		XSSFSheet sheet = wb.getSheet(sheetName);
-		int rows = sheet.getPhysicalNumberOfRows();
-		int cols = sheet.getRow(0).getPhysicalNumberOfCells();
-		System.out.println("number of rows" + rows);
-		System.out.println("number of columns" + cols);
-		String inputData[][] = new String[rows][cols];
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				XSSFCell cell = sheet.getRow(i).getCell(j);
-				inputData[i][j] = cell.getStringCellValue();
-				System.out.println(inputData[i][j]);
+		try (XSSFWorkbook wb = new XSSFWorkbook(fs)) {
+			XSSFSheet sheet = wb.getSheet(sheetName);
+			int rows = sheet.getPhysicalNumberOfRows();
+			int cols = sheet.getRow(0).getPhysicalNumberOfCells();
+			System.out.println("number of rows" + rows);
+			System.out.println("number of columns" + cols);
+			String inputData[][] = new String[rows][cols];
+			for (int i = 0; i < rows; i++) {
+				for (int j = 0; j < cols; j++) {
+					XSSFCell cell = sheet.getRow(i).getCell(j);
+					inputData[i][j] = cell.getStringCellValue();
+					System.out.println(inputData[i][j]);
+				}
+				System.out.println();
 			}
-			System.out.println();
+			return inputData;
 		}
-		return inputData;
 
 	}
 
@@ -167,32 +168,37 @@ public class AppLibrary {
 		String password = pword;
 
 		Connection con = DriverManager.getConnection(url, username, password);
-		Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+		Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 		// int value = stmt.executeUpdate("INSERT INTO `mmp`.`patient_data` VALUES
 		// (11,'James','22/11/2021');");
 		// System.out.println("The rows are updated "+ value);
 
-		ResultSet rs = stmt.executeQuery("Select * from " + dbname + "." + tableName);
-		rs.last();
-
-		int rows = rs.getRow();
+		String sqlQueryString =  "Select * from registration_profile.patient_registration_detail where SSN=456732196";
+		
+		//ResultSet rs = stmt.executeQuery("Select * from " + dbname + "." + tableName+" " + "where SSN=23543544");
+		ResultSet resultSet = stmt.executeQuery(sqlQueryString);
+		//rs.last();
+		//rs.get
+		System.out.println("Before : " + stmt.toString());
+		
+		int rows = resultSet.getRow();
 		System.out.println("Number of rows " + rows);
-		ResultSetMetaData rsmd = rs.getMetaData();
-		int cols = rsmd.getColumnCount();
-		System.out.println("Number of cols: " + cols);
+		ResultSetMetaData rsmd = resultSet.getMetaData();
+		int columns = rsmd.getColumnCount();
+		System.out.println("Number of cols: " + columns);
 
-		String data[][] = new String[rows][cols];
-		int i = 0;
-		rs.first();
-		while (rs.next()) {
-			for (int j = 0; j < cols; j++) {
-				data[i][j] = rs.getString(j + 1);
-				System.out.println(data[i][j]);
-				System.out.println("i :::" + i + "@@@@" + "j:::::" + j);
-			}
-			i++;
-		}
-		return data;
+		String[][] resultSetArray = new String[1][columns];
+        int rowIndex = 0;
+        while (resultSet.next()) {
+            for (int i = 0; i < columns; i++) {
+            	resultSetArray[rowIndex][i] = resultSet.getString(i+1);
+            }
+            rowIndex++;
+        }
+		
+		con.close();
+		return resultSetArray;
+		
 	}
 
 }
